@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Builders | Premium Construction & Infrastructure</title>
+    <title>RB Nova | Premium Construction & Infrastructure</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,22 +20,24 @@
                     },
                     colors: {
                         brand: {
-                            50: '#f8f7f4',
-                            100: '#efece5',
-                            200: '#ddd8cc',
-                            300: '#c4bba8',
-                            400: '#a89a82',
-                            500: '#8c7d66',
-                            600: '#6b5f4f',
-                            700: '#52483d',
-                            800: '#3d362f',
-                            900: '#2a2520',
-                            950: '#1a1714',
+                            50: '#f7f7f5',
+                            100: '#e8e7e3',
+                            200: '#cfcfca',
+                            300: '#adaca6',
+                            400: '#8b8983',
+                            500: '#6f6d67',
+                            600: '#55534f',
+                            700: '#3c3a37',
+                            800: '#272624',
+                            900: '#171716',
+                            950: '#090909',
                         },
                         accent: {
-                            50: '#fff7ed',
-                            500: '#f97316',
-                            600: '#ea580c',
+                            50: '#fff8df',
+                            500: '#d7a33a',
+                            600: '#b9841d',
+                            700: '#8f6415',
+                            800: '#684910',
                         }
                     }
                 }
@@ -78,24 +80,37 @@
         .counter {
             font-variant-numeric: tabular-nums;
         }
+
+        .rb-logo-text {
+            background: linear-gradient(90deg, #f8d36b 0%, #d7a33a 42%, #f7f7f7 58%, #bdbdbd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .rb-logo-image {
+            background: #090909;
+            border: 1px solid rgba(215, 163, 58, 0.45);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
         
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f8f7f4;
+            background: #171716;
         }
         ::-webkit-scrollbar-thumb {
-            background: #c4bba8;
+            background: #b9841d;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #a89a82;
+            background: #d7a33a;
         }
 
         .loader {
-            border-top-color: #ea580c;
+            border-top-color: #d7a33a;
             -webkit-animation: spinner 1.5s linear infinite;
             animation: spinner 1.5s linear infinite;
         }
@@ -114,12 +129,10 @@
             <div class="flex items-center justify-between h-20 lg:h-24">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-10 h-10 bg-accent-600 rounded-lg flex items-center justify-center text-white">
-                        <i class="fa-solid fa-building-columns text-lg"></i>
-                    </div>
+                    <img src="rb-nova-logo.jpeg" alt="RB Nova logo" class="rb-logo-image w-12 h-12 lg:w-14 lg:h-14 rounded-lg object-cover">
                     <div class="flex flex-col">
-                        <span class="font-serif text-xl lg:text-2xl font-bold text-white tracking-tight" id="nav-logo-text">APEX</span>
-                        <span class="text-[10px] uppercase tracking-[0.2em] text-white/80" id="nav-logo-sub">Builders</span>
+                        <span class="rb-logo-text font-serif text-xl lg:text-2xl font-bold tracking-tight" id="nav-logo-text">RB NOVA</span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-brand-100/90" id="nav-logo-sub">Building Legacy</span>
                     </div>
                 </div>
 
@@ -166,13 +179,15 @@
 
         <!-- Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <div class="hero-text space-y-8">
+            <div class="hero-text space-y-6">
+                <img src="rb-nova-logo.jpeg" alt="RB Nova logo" class="rb-logo-image mx-auto w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-2xl object-cover">
+
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-medium mb-4">
                     <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
-                    Building Dreams Since 1998
+                    Building Future. Creating Legacy.
                 </div>
                 
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight">
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
                     We Build<br>
                     <span class="text-accent-500 italic">Your Future</span>
                 </h1>
@@ -240,7 +255,7 @@
                         <span class="text-brand-600 italic">Inspire Living</span>
                     </h2>
                     <p class="text-brand-600 leading-relaxed mb-6 text-lg">
-                        With over two decades of experience, Apex Builders has established itself as a leader in residential and commercial construction. We combine innovative engineering with timeless design principles.
+                        With over two decades of experience, RB Nova has established itself as a leader in residential and commercial construction. We combine innovative engineering with timeless design principles.
                     </p>
                     <p class="text-brand-500 leading-relaxed mb-8">
                         Our team of architects, engineers, and craftsmen work collaboratively to deliver projects that exceed expectations. From luxury homes to commercial complexes, we bring the same level of dedication and precision to every build.
@@ -614,7 +629,7 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-brand-700 mb-6 italic leading-relaxed">"Apex Builders transformed our outdated home into a modern masterpiece. Their attention to detail and communication throughout the project was exceptional."</p>
+                    <p class="text-brand-700 mb-6 italic leading-relaxed">"RB Nova transformed our outdated home into a modern masterpiece. Their attention to detail and communication throughout the project was exceptional."</p>
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-brand-200 rounded-full flex items-center justify-center text-brand-700 font-bold">JD</div>
                         <div>
@@ -664,18 +679,18 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 bg-accent-600 relative overflow-hidden">
+    <section class="py-24 bg-gradient-to-r from-brand-950 via-brand-900 to-accent-800 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         </div>
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 reveal">
-            <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Build Your Dream?</h2>
-            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">Let's discuss your next project. Our team is ready to bring your vision to life with precision and excellence.</p>
+            <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Build Your Legacy?</h2>
+            <p class="text-brand-100 text-lg mb-8 max-w-2xl mx-auto">Let's discuss your next project. Our team is ready to bring your vision to life with precision and excellence.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact" class="px-8 py-4 bg-white text-accent-600 font-bold rounded-full hover:bg-brand-50 transition-all transform hover:scale-105 shadow-xl">
+                <a href="#contact" class="px-8 py-4 bg-white text-brand-950 font-bold rounded-full hover:bg-brand-100 transition-all transform hover:scale-105 shadow-xl">
                     Start Your Project
                 </a>
-                <a href="tel:+1234567890" class="px-8 py-4 bg-accent-700 text-white font-bold rounded-full hover:bg-accent-800 transition-all border border-white/30">
+                <a href="tel:+1234567890" class="px-8 py-4 bg-accent-600 text-white font-bold rounded-full hover:bg-accent-500 transition-all border border-accent-500/50">
                     <i class="fa-solid fa-phone mr-2"></i> Call Us Now
                 </a>
             </div>
@@ -721,7 +736,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold text-brand-900 mb-1">Email Us</h4>
-                                <p class="text-brand-600">info@apexbuilders.com<br>projects@apexbuilders.com</p>
+                                <p class="text-brand-600">info@rbnova.com<br>projects@rbnova.com</p>
                             </div>
                         </div>
                     </div>
@@ -800,15 +815,13 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-accent-600 rounded-lg flex items-center justify-center">
-                            <i class="fa-solid fa-building-columns text-white"></i>
-                        </div>
+                        <img src="rb-nova-logo.jpeg" alt="RB Nova logo" class="rb-logo-image w-28 h-28 rounded-xl object-cover">
                         <div>
-                            <span class="font-serif text-xl font-bold">APEX</span>
-                            <span class="text-xs uppercase tracking-wider text-brand-400 block">Builders</span>
+                            <span class="rb-logo-text font-serif text-xl font-bold">RB NOVA</span>
+                            <span class="text-xs uppercase tracking-wider text-brand-400 block">Building Legacy</span>
                         </div>
                     </div>
-                    <p class="text-brand-400 text-sm leading-relaxed">Building excellence since 1998. We transform visions into reality with precision craftsmanship and innovative solutions.</p>
+                    <p class="text-brand-400 text-sm leading-relaxed">Building future. Creating legacy. We transform visions into reality with precision craftsmanship and innovative solutions.</p>
                 </div>
                 
                 <div>
@@ -844,7 +857,7 @@
             </div>
             
             <div class="border-t border-brand-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-brand-500 text-sm">&copy; 2024 Apex Builders. All rights reserved.</p>
+                <p class="text-brand-500 text-sm">&copy; 2024 RB Nova. All rights reserved.</p>
                 <div class="flex gap-6 text-brand-500 text-sm">
                     <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
