@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -16,28 +16,28 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        serif: ['Montserrat', 'Inter', 'sans-serif'],
                     },
                     colors: {
                         brand: {
-                            50: '#f7f7f5',
-                            100: '#e8e7e3',
-                            200: '#cfcfca',
-                            300: '#adaca6',
-                            400: '#8b8983',
-                            500: '#6f6d67',
-                            600: '#55534f',
-                            700: '#3c3a37',
-                            800: '#272624',
-                            900: '#171716',
-                            950: '#090909',
+                            50: '#F5F3EE',
+                            100: '#E8E5DC',
+                            200: '#C9CDD2',
+                            300: '#A9ADB3',
+                            400: '#858B93',
+                            500: '#696E76',
+                            600: '#4B4F57',
+                            700: '#30333A',
+                            800: '#222329',
+                            900: '#17181C',
+                            950: '#0B0B0D',
                         },
                         accent: {
-                            50: '#fff8df',
-                            500: '#d7a33a',
-                            600: '#b9841d',
-                            700: '#8f6415',
-                            800: '#684910',
+                            50: '#F8EAC6',
+                            500: '#C8A45D',
+                            600: '#B28B3E',
+                            700: '#8C6A2D',
+                            800: '#5F471F',
                         }
                     }
                 }
@@ -77,10 +77,6 @@
             transition: width 1.5s ease-out;
         }
         
-        .counter {
-            font-variant-numeric: tabular-nums;
-        }
-
         .rb-logo-text {
             background: linear-gradient(90deg, #f8d36b 0%, #d7a33a 42%, #f7f7f7 58%, #bdbdbd 100%);
             -webkit-background-clip: text;
@@ -121,7 +117,7 @@
         }
     </style>
 </head>
-<body class="font-sans text-brand-800 bg-brand-50 antialiased overflow-x-hidden">
+<body class="font-sans text-brand-100 bg-brand-950 antialiased overflow-x-hidden">
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent">
@@ -139,11 +135,11 @@
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center gap-8">
                     <a href="#about" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">About</a>
+                    <a href="#engineer" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Engineer</a>
                     <a href="#services" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Services</a>
                     <a href="#projects" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Projects</a>
                     <a href="#process" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Process</a>
-                    <a href="#testimonials" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Reviews</a>
-                    <a href="#contact" class="ml-4 px-6 py-3 bg-accent-600 hover:bg-accent-500 text-white text-sm font-semibold rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    <a href="#contact" class="ml-4 px-6 py-3 bg-accent-500 hover:bg-accent-50 text-brand-950 text-xs font-semibold uppercase tracking-[0.18em] rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
                         Get a Quote
                     </a>
                 </div>
@@ -159,48 +155,43 @@
         <div id="mobile-menu" class="lg:hidden hidden bg-brand-900/95 nav-blur absolute w-full border-t border-white/10">
             <div class="px-6 py-8 space-y-4">
                 <a href="#about" class="block text-lg text-white/90 hover:text-white py-2">About</a>
+                <a href="#engineer" class="block text-lg text-white/90 hover:text-white py-2">Engineer</a>
                 <a href="#services" class="block text-lg text-white/90 hover:text-white py-2">Services</a>
                 <a href="#projects" class="block text-lg text-white/90 hover:text-white py-2">Projects</a>
                 <a href="#process" class="block text-lg text-white/90 hover:text-white py-2">Process</a>
-                <a href="#contact" class="block mt-6 px-6 py-3 bg-accent-600 text-white text-center rounded-full font-semibold">Get a Quote</a>
+                <a href="#contact" class="block mt-6 px-6 py-3 bg-accent-500 text-brand-950 text-center rounded-full font-semibold uppercase tracking-[0.18em]">Get a Quote</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" 
-                 alt="Construction site" 
-                 class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]">
-            <div class="absolute inset-0 bg-gradient-to-b from-brand-950/70 via-brand-950/50 to-brand-950/80"></div>
-        </div>
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-brand-950 pt-28 pb-24">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(200,164,93,0.16),transparent_32%),linear-gradient(135deg,#0B0B0D_0%,#17181C_52%,#0B0B0D_100%)]"></div>
 
-        <!-- Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 w-full text-center">
             <div class="hero-text space-y-8">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-medium mb-4">
-                    <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+                <div class="inline-flex items-center justify-center gap-3 text-accent-500 text-xs font-semibold uppercase tracking-[0.28em]">
+                    <span class="w-10 h-px bg-accent-500"></span>
                     Building Future. Creating Legacy.
+                    <span class="w-10 h-px bg-accent-500"></span>
                 </div>
-                
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[1.1] tracking-tight">
+
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-[86px] font-semibold text-white leading-[1.03]">
                     We Build<br>
-                    <span class="text-accent-500 italic">Your Future</span>
+                    <span class="text-accent-500">Your Future</span>
                 </h1>
-                
-                <p class="max-w-2xl mx-auto text-lg md:text-xl text-white/80 font-light leading-relaxed">
+
+                <p class="max-w-2xl mx-auto text-base md:text-lg text-brand-200 font-light leading-relaxed">
                     Premium construction and infrastructure solutions for residential and commercial projects. 
                     Where precision meets architectural excellence.
                 </p>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                    <a href="#projects" class="px-8 py-4 bg-accent-600 hover:bg-accent-500 text-white font-semibold rounded-full transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center gap-2">
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                    <a href="#projects" class="px-8 py-4 bg-accent-500 hover:bg-accent-50 text-brand-950 text-xs font-semibold uppercase tracking-[0.18em] rounded-full transition-all transform hover:scale-105 shadow-xl flex items-center gap-2">
                         View Our Work
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="#contact" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold rounded-full transition-all backdrop-blur-sm">
+                    <a href="#contact" class="px-8 py-4 bg-transparent hover:bg-accent-500/10 text-accent-500 border border-accent-500/70 text-xs font-semibold uppercase tracking-[0.18em] rounded-full transition-all">
                         Contact Us
                     </a>
                 </div>
@@ -211,30 +202,6 @@
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
             <div class="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2">
                 <div class="w-1 h-2 bg-white/80 rounded-full animate-pulse"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-20 bg-white relative -mt-20 z-20 mx-4 lg:mx-12 rounded-3xl shadow-2xl">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                <div class="text-center reveal">
-                    <div class="text-4xl lg:text-5xl font-serif font-bold text-brand-900 counter" data-target="25">0</div>
-                    <div class="text-sm text-brand-500 mt-2 font-medium uppercase tracking-wider">Years Experience</div>
-                </div>
-                <div class="text-center reveal">
-                    <div class="text-4xl lg:text-5xl font-serif font-bold text-brand-900 counter" data-target="340">0</div>
-                    <div class="text-sm text-brand-500 mt-2 font-medium uppercase tracking-wider">Projects Done</div>
-                </div>
-                <div class="text-center reveal">
-                    <div class="text-4xl lg:text-5xl font-serif font-bold text-brand-900 counter" data-target="98">0</div>
-                    <div class="text-sm text-brand-500 mt-2 font-medium uppercase tracking-wider">% Satisfaction</div>
-                </div>
-                <div class="text-center reveal">
-                    <div class="text-4xl lg:text-5xl font-serif font-bold text-brand-900 counter" data-target="50">0</div>
-                    <div class="text-sm text-brand-500 mt-2 font-medium uppercase tracking-wider">Expert Team</div>
-                </div>
             </div>
         </div>
     </section>
@@ -250,13 +217,13 @@
                     </div>
                     <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-900 mb-6 leading-tight">
                         Crafting Spaces That<br>
-                        <span class="text-brand-600 italic">Inspire Living</span>
+                        <span class="text-brand-600">Inspire Living</span>
                     </h2>
                     <p class="text-brand-600 leading-relaxed mb-6 text-lg">
                         Led by civil engineer <span class="font-semibold text-accent-600">Rathod Bhimsen</span>, RB Nova brings 4 years of detail-oriented engineering, site execution expertise, and thoughtful design coordination to residential and commercial developments.
                     </p>
                     <p class="text-brand-600 leading-relaxed mb-6 text-lg">
-                        His approach is grounded in being present on site, understanding the drawings deeply, and making sure each decision serves both the strength of the structure and the comfort of the people who will live or work inside it.
+                        Our approach is grounded in being present on site, understanding the drawings deeply, and making sure each decision serves both the strength of the structure and the comfort of the people who will live or work inside it.
                     </p>
                     <p class="text-brand-600 leading-relaxed mb-8 text-lg">
                         With hands-on experience across apartment, condominium, and residential projects, RB Nova translates architectural and structural drawings into precise on-site execution, supported by estimation, planning, quality control, and close coordination with contractors, consultants, and vendors.
@@ -299,8 +266,82 @@
         </div>
     </section>
 
+    <!-- Engineer Profile Section -->
+    <section id="engineer" class="py-24 lg:py-32 bg-brand-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-[400px_1fr] gap-10 lg:gap-14 items-start">
+                <div class="relative reveal lg:mt-12">
+                    <div class="absolute -inset-4 border border-accent-500/30 rounded-2xl"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-brand-800">
+                        <img src="Engineer Picture.png"
+                             alt="Civil Engineer Rathod Bhimsen"
+                             class="w-full aspect-[4/5] object-cover object-center">
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 text-accent-500 font-semibold text-xs uppercase tracking-wider mb-3">
+                        <div class="w-8 h-[2px] bg-accent-500"></div>
+                        About The Engineer
+                    </div>
+                    <h2 class="font-serif text-2xl lg:text-3xl font-bold text-brand-200 mb-3 leading-tight">
+                        Rathod Bhimsen<br>
+                        <span class="text-xl lg:text-2xl font-semibold">Civil Engineer & Site Designer</span>
+                    </h2>
+                    <p class="text-brand-200 text-base leading-6 mb-3">
+                        Rathod Bhimsen is a detail-oriented civil engineer experienced in site execution, structural design coordination, estimation, and project planning for residential and commercial developments.
+                    </p>
+                    <p class="text-brand-200 text-base leading-6 mb-5">
+                        He translates architectural, structural, and RCC drawings into accurate on-site execution while coordinating with contractors, architects, consultants, and vendors to maintain quality, cost control, safety, and timelines.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-3 mb-5">
+                        <div class="bg-brand-800/70 border border-white/10 rounded-xl p-3">
+                            <div class="w-8 h-8 rounded-lg bg-accent-500/15 flex items-center justify-center text-accent-500 mb-2">
+                                <i class="fa-solid fa-helmet-safety"></i>
+                            </div>
+                            <h3 class="font-serif text-base font-semibold text-brand-200 mb-1">Site Execution</h3>
+                            <p class="text-xs text-brand-200 leading-5">Layout marking, supervision, progress tracking, and material planning.</p>
+                        </div>
+                        <div class="bg-brand-800/70 border border-white/10 rounded-xl p-3">
+                            <div class="w-8 h-8 rounded-lg bg-accent-500/15 flex items-center justify-center text-accent-500 mb-2">
+                                <i class="fa-solid fa-drafting-compass"></i>
+                            </div>
+                            <h3 class="font-serif text-base font-semibold text-brand-200 mb-1">Design Coordination</h3>
+                            <p class="text-xs text-brand-200 leading-5">2D drawings, 3D elevations, structural coordination, and drawing review.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-3 mb-5">
+                        <div class="border-l-2 border-accent-500 pl-3">
+                            <div class="text-lg font-serif font-semibold text-brand-200">9.01</div>
+                            <div class="text-[10px] uppercase tracking-[0.12em] text-brand-200 mt-1">Civil Engineering CGPA</div>
+                        </div>
+                        <div class="border-l-2 border-accent-500 pl-3">
+                            <div class="text-lg font-serif font-semibold text-brand-200">2023</div>
+                            <div class="text-[10px] uppercase tracking-[0.12em] text-brand-200 mt-1">B.Tech Graduate</div>
+                        </div>
+                        <div class="border-l-2 border-accent-500 pl-3">
+                            <div class="text-lg font-serif font-semibold text-brand-200">4+</div>
+                            <div class="text-[10px] uppercase tracking-[0.12em] text-brand-200 mt-1">Core Technical Tools</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">AutoCAD</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">Revit</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">STAAD Pro</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">Primavera</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">BOQs & Estimation</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">Quality Control</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="services" class="py-24 lg:py-32 bg-white">
+    <section id="services" class="py-24 lg:py-32 bg-brand-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <div class="inline-flex items-center gap-2 text-accent-600 font-semibold text-sm uppercase tracking-wider mb-4">
@@ -599,76 +640,6 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="py-24 lg:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <div class="inline-flex items-center gap-2 text-accent-600 font-semibold text-sm uppercase tracking-wider mb-4">
-                    <div class="w-8 h-[2px] bg-accent-600"></div>
-                    Testimonials
-                    <div class="w-8 h-[2px] bg-accent-600"></div>
-                </div>
-                <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-900 mb-6">What Clients Say</h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-brand-50 p-8 rounded-2xl reveal">
-                    <div class="flex text-accent-500 mb-4">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-brand-700 mb-6 italic leading-relaxed">"RB Nova transformed our outdated home into a modern masterpiece. Their attention to detail and communication throughout the project was exceptional."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-brand-200 rounded-full flex items-center justify-center text-brand-700 font-bold">JD</div>
-                        <div>
-                            <h4 class="font-semibold text-brand-900">James Davidson</h4>
-                            <p class="text-sm text-brand-500">Homeowner, Oakridge Villa</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-brand-50 p-8 rounded-2xl reveal">
-                    <div class="flex text-accent-500 mb-4">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-brand-700 mb-6 italic leading-relaxed">"The commercial complex they built for us was completed ahead of schedule. Their team handled every challenge professionally. Highly recommended!"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-brand-200 rounded-full flex items-center justify-center text-brand-700 font-bold">SM</div>
-                        <div>
-                            <h4 class="font-semibold text-brand-900">Sarah Mitchell</h4>
-                            <p class="text-sm text-brand-500">CEO, Metro Retail Group</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-brand-50 p-8 rounded-2xl reveal">
-                    <div class="flex text-accent-500 mb-4">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-brand-700 mb-6 italic leading-relaxed">"From design to final walkthrough, the experience was seamless. They delivered exactly what they promised with superior craftsmanship."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-brand-200 rounded-full flex items-center justify-center text-brand-700 font-bold">RK</div>
-                        <div>
-                            <h4 class="font-semibold text-brand-900">Robert Kim</h4>
-                            <p class="text-sm text-brand-500">Director, Horizon Developments</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
     <section class="py-24 bg-gradient-to-r from-brand-950 via-brand-900 to-accent-800 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
@@ -678,10 +649,10 @@
             <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Build Your Legacy?</h2>
             <p class="text-brand-100 text-lg mb-8 max-w-2xl mx-auto">Let's discuss your next project. Our team is ready to bring your vision to life with precision and excellence.</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact" class="px-8 py-4 bg-white text-brand-950 font-bold rounded-full hover:bg-brand-100 transition-all transform hover:scale-105 shadow-xl">
+                <a href="#contact" class="px-8 py-4 bg-accent-500 text-brand-950 text-xs font-bold uppercase tracking-[0.18em] rounded-full hover:bg-accent-50 transition-all transform hover:scale-105 shadow-xl">
                     Start Your Project
                 </a>
-                <a href="tel:+1234567890" class="px-8 py-4 bg-accent-600 text-white font-bold rounded-full hover:bg-accent-500 transition-all border border-accent-500/50">
+                <a href="tel:+916362931611" class="px-8 py-4 bg-transparent text-accent-500 text-xs font-bold uppercase tracking-[0.18em] rounded-full hover:bg-accent-500/10 transition-all border border-accent-500/70">
                     <i class="fa-solid fa-phone mr-2"></i> Call Us Now
                 </a>
             </div>
@@ -691,110 +662,48 @@
     <!-- Contact Section -->
     <section id="contact" class="py-24 lg:py-32 bg-brand-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div class="reveal">
-                    <div class="inline-flex items-center gap-2 text-accent-600 font-semibold text-sm uppercase tracking-wider mb-4">
-                        <div class="w-8 h-[2px] bg-accent-600"></div>
-                        Contact Us
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <div class="inline-flex items-center justify-center gap-2 text-accent-600 font-semibold text-sm uppercase tracking-wider mb-4">
+                    <div class="w-8 h-[2px] bg-accent-600"></div>
+                    Contact Us
+                    <div class="w-8 h-[2px] bg-accent-600"></div>
+                </div>
+                <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-900 mb-6">Let's Start a Conversation</h2>
+                <p class="text-brand-600 text-lg mb-12">Have a project in mind? Reach out to us for a free consultation and estimate.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 text-left">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-accent-600 shadow-sm mb-5">
+                            <i class="fa-solid fa-location-dot text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-brand-900 mb-2">Visit Our Office</h4>
+                        <p class="text-brand-600">Near Mariyama Aai Temple,<br>Ram Mandir Circle,<br>Kalaburagi</p>
                     </div>
-                    <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-900 mb-6">Let's Start a Conversation</h2>
-                    <p class="text-brand-600 text-lg mb-8">Have a project in mind? Reach out to us for a free consultation and estimate.</p>
                     
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-accent-600 shadow-sm flex-shrink-0">
-                                <i class="fa-solid fa-location-dot text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-brand-900 mb-1">Visit Our Office</h4>
-                                <p class="text-brand-600">123 Construction Ave, Building District<br>New York, NY 10001</p>
-                            </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-accent-600 shadow-sm mb-5">
+                            <i class="fa-solid fa-phone text-xl"></i>
                         </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-accent-600 shadow-sm flex-shrink-0">
-                                <i class="fa-solid fa-phone text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-brand-900 mb-1">Call Us</h4>
-                                <p class="text-brand-600">+1 (234) 567-8900<br>Mon - Fri: 8:00 AM - 6:00 PM</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-accent-600 shadow-sm flex-shrink-0">
-                                <i class="fa-solid fa-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-brand-900 mb-1">Email Us</h4>
-                                <p class="text-brand-600">info@rbnova.com<br>projects@rbnova.com</p>
-                            </div>
-                        </div>
+                        <h4 class="font-semibold text-brand-900 mb-2">Call Us</h4>
+                        <p class="text-brand-600"><a href="tel:+916362931611" class="hover:text-accent-600 transition-colors">+91 63629 31611</a><br>Mon - Fri: 8:00 AM - 6:00 PM</p>
                     </div>
-
-                    <div class="mt-10">
-                        <h4 class="font-semibold text-brand-900 mb-4">Follow Us</h4>
-                        <div class="flex gap-3">
-                            <a href="#" class="w-10 h-10 bg-brand-900 text-white rounded-full flex items-center justify-center hover:bg-accent-600 transition-colors">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-brand-900 text-white rounded-full flex items-center justify-center hover:bg-accent-600 transition-colors">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-brand-900 text-white rounded-full flex items-center justify-center hover:bg-accent-600 transition-colors">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 bg-brand-900 text-white rounded-full flex items-center justify-center hover:bg-accent-600 transition-colors">
-                                <i class="fa-brands fa-twitter"></i>
-                            </a>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-accent-600 shadow-sm mb-5">
+                            <i class="fa-solid fa-envelope text-xl"></i>
                         </div>
+                        <h4 class="font-semibold text-brand-900 mb-2">Email Us</h4>
+                        <p class="text-brand-600 break-words"><a href="mailto:rbnovaconstruction@gamil.com" class="hover:text-accent-600 transition-colors">rbnovaconstruction@gamil.com</a></p>
                     </div>
                 </div>
 
-                <div class="bg-white p-8 lg:p-10 rounded-2xl shadow-xl reveal">
-                    <form id="contact-form" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label class="block text-sm font-medium text-brand-700 mb-2">First Name</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-brand-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all" placeholder="John" required>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-brand-700 mb-2">Last Name</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-brand-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all" placeholder="Doe" required>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-brand-700 mb-2">Email Address</label>
-                            <input type="email" class="w-full px-4 py-3 rounded-lg border border-brand-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all" placeholder="john@example.com" required>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-brand-700 mb-2">Phone Number</label>
-                            <input type="tel" class="w-full px-4 py-3 rounded-lg border border-brand-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all" placeholder="+1 (234) 567-8900">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-brand-700 mb-2">Project Type</label>
-                            <select class="w-full px-4 py-3 rounded-lg border border-brand-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all bg-white">
-                                <option>Select a service</option>
-                                <option>Residential Construction</option>
-                                <option>Commercial Project</option>
-                                <option>Renovation</option>
-                                <option>Infrastructure</option>
-                                <option>Consultation</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-brand-700 mb-2">Message</label>
-                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-brand-200 focus:border-accent-500 focus:ring-2 focus:ring-accent-200 outline-none transition-all resize-none" placeholder="Tell us about your project..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full py-4 bg-brand-900 hover:bg-accent-600 text-white font-bold rounded-lg transition-all transform hover:scale-[1.02] shadow-lg">
-                            Send Message
-                        </button>
-                    </form>
+                <div class="mt-10">
+                    <h4 class="font-semibold text-brand-900 mb-4">Follow Us</h4>
+                    <div class="flex justify-center gap-3">
+                        <a href="https://www.instagram.com/rbnova.luxurybuilds?utm_source=qr&igsh=MTgzZGEzNnY1czlzMg%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="RB Nova on Instagram" class="w-10 h-10 bg-brand-900 text-white rounded-full flex items-center justify-center hover:bg-accent-600 transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -803,7 +712,7 @@
     <!-- Footer -->
     <footer class="bg-brand-950 text-white py-16">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
                         <img src="rb-nova-logo.jpeg" alt="RB Nova logo" class="rb-logo-image w-28 h-28 rounded-xl object-cover">
@@ -819,6 +728,7 @@
                     <h4 class="font-serif text-lg font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-3 text-brand-400">
                         <li><a href="#about" class="hover:text-accent-500 transition-colors">About Us</a></li>
+                        <li><a href="#engineer" class="hover:text-accent-500 transition-colors">Engineer</a></li>
                         <li><a href="#services" class="hover:text-accent-500 transition-colors">Services</a></li>
                         <li><a href="#projects" class="hover:text-accent-500 transition-colors">Projects</a></li>
                         <li><a href="#contact" class="hover:text-accent-500 transition-colors">Contact</a></li>
@@ -833,17 +743,6 @@
                         <li><a href="#" class="hover:text-accent-500 transition-colors">Renovation</a></li>
                         <li><a href="#" class="hover:text-accent-500 transition-colors">Infrastructure</a></li>
                     </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-serif text-lg font-bold mb-6">Newsletter</h4>
-                    <p class="text-brand-400 text-sm mb-4">Subscribe for construction tips and company updates.</p>
-                    <form class="flex gap-2">
-                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 bg-brand-900 border border-brand-800 rounded-lg text-white placeholder-brand-500 focus:outline-none focus:border-accent-500">
-                        <button class="px-4 py-2 bg-accent-600 hover:bg-accent-500 rounded-lg transition-colors">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </form>
                 </div>
             </div>
             
@@ -900,34 +799,6 @@
 
         revealElements.forEach(el => revealObserver.observe(el));
 
-        // Counter animation
-        const counters = document.querySelectorAll('.counter');
-        
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const target = parseInt(entry.target.getAttribute('data-target'));
-                    const duration = 2000;
-                    const step = target / (duration / 16);
-                    let current = 0;
-                    
-                    const timer = setInterval(() => {
-                        current += step;
-                        if (current >= target) {
-                            entry.target.textContent = target + (target === 98 ? '%' : '+');
-                            clearInterval(timer);
-                        } else {
-                            entry.target.textContent = Math.floor(current) + (target === 98 ? '%' : '');
-                        }
-                    }, 16);
-                    
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => counterObserver.observe(counter));
-
         // Project filtering
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
@@ -976,29 +847,6 @@
             });
         });
 
-        // Form submission handler
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            
-            btn.innerHTML = '<div class="loader w-5 h-5 border-2 border-white rounded-full inline-block"></div> Sending...';
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Message Sent!';
-                btn.classList.remove('bg-brand-900');
-                btn.classList.add('bg-green-600');
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.classList.remove('bg-green-600');
-                    btn.classList.add('bg-brand-900');
-                    btn.disabled = false;
-                    e.target.reset();
-                }, 3000);
-            }, 1500);
-        });
     </script>
 </body>
 </html>
