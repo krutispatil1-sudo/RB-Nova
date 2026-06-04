@@ -458,116 +458,260 @@
                 </div>
                 <div class="flex gap-2 mt-6 lg:mt-0">
                     <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium transition-all bg-brand-900 text-white" data-filter="all">All</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-brand-600 hover:bg-brand-100" data-filter="residential">Residential</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-brand-600 hover:bg-brand-100" data-filter="commercial">Commercial</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-brand-600 hover:bg-brand-100" data-filter="completed">Completed Projects</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-brand-600 hover:bg-brand-100" data-filter="interior">Interior Designs</button>
                 </div>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
-                <!-- Project 1 -->
-                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="residential">
+                <!-- Completed Project 1 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
                     <div class="aspect-[4/5] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" 
-                             alt="Modern villa" 
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.51 PM.jpeg" 
+                             alt="Multi-story residential building" 
                              class="w-full h-full object-cover image-hover">
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Residential</span>
-                        <h3 class="text-white font-serif text-2xl font-bold">The Oakridge Villa</h3>
-                        <p class="text-white/80 text-sm mt-2">Luxury 5-bedroom family home with sustainable features</p>
-                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
-                            <span><i class="fa-regular fa-calendar mr-1"></i> 2023</span>
-                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> 4,500 sqft</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="commercial">
-                    <div class="aspect-[4/5] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" 
-                             alt="Office building" 
-                             class="w-full h-full object-cover image-hover">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Commercial</span>
-                        <h3 class="text-white font-serif text-2xl font-bold">Horizon Tower</h3>
-                        <p class="text-white/80 text-sm mt-2">12-story mixed-use development in downtown</p>
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">RB Nova Residency</h3>
+                        <p class="text-white/80 text-sm mt-2">Multi-story residential complex with modern facade</p>
                         <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
                             <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
-                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> 85,000 sqft</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 5 Floors</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="residential">
+                <!-- Interior Design 1 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
                     <div class="aspect-[4/5] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" 
-                             alt="Modern home" 
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.21 PM.jpeg" 
+                             alt="Luxury modern kitchen" 
                              class="w-full h-full object-cover image-hover">
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Residential</span>
-                        <h3 class="text-white font-serif text-2xl font-bold">Seaside Retreat</h3>
-                        <p class="text-white/80 text-sm mt-2">Coastal modern home with panoramic ocean views</p>
-                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
-                            <span><i class="fa-regular fa-calendar mr-1"></i> 2023</span>
-                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> 3,200 sqft</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="commercial">
-                    <div class="aspect-[4/5] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" 
-                             alt="Retail space" 
-                             class="w-full h-full object-cover image-hover">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Commercial</span>
-                        <h3 class="text-white font-serif text-2xl font-bold">Metro Retail Hub</h3>
-                        <p class="text-white/80 text-sm mt-2">Modern shopping complex with 24 retail units</p>
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Premium Kitchen</h3>
+                        <p class="text-white/80 text-sm mt-2">Elegant U-shaped kitchen with ambient lighting and premium finishes</p>
                         <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
                             <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
-                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> 45,000 sqft</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Modular</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 5 -->
-                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="residential">
+                <!-- Completed Project 2 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
                     <div class="aspect-[4/5] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" 
-                             alt="Luxury home" 
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.33 PM (1).jpeg" 
+                             alt="White residential building with blue accents" 
                              class="w-full h-full object-cover image-hover">
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Residential</span>
-                        <h3 class="text-white font-serif text-2xl font-bold">Hillside Estate</h3>
-                        <p class="text-white/80 text-sm mt-2">Contemporary mountain residence with smart home tech</p>
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Skyline Apartments</h3>
+                        <p class="text-white/80 text-sm mt-2">Contemporary apartment building with clean architectural lines</p>
                         <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
-                            <span><i class="fa-regular fa-calendar mr-1"></i> 2022</span>
-                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> 6,800 sqft</span>
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 4 Floors</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 6 -->
-                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="commercial">
+                <!-- Interior Design 2 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
                     <div class="aspect-[4/5] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&q=80" 
-                             alt="Industrial facility" 
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.22 PM (1).jpeg" 
+                             alt="Modern bathroom with round mirror" 
                              class="w-full h-full object-cover image-hover">
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Commercial</span>
-                        <h3 class="text-white font-serif text-2xl font-bold">Industrial Park</h3>
-                        <p class="text-white/80 text-sm mt-2">State-of-the-art manufacturing facility complex</p>
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Designer Bathroom</h3>
+                        <p class="text-white/80 text-sm mt-2">Minimalist bathroom with backlit mirror and floating vanity</p>
                         <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
-                            <span><i class="fa-regular fa-calendar mr-1"></i> 2023</span>
-                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> 120,000 sqft</span>
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Compact</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 3 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.33 PM.jpeg" 
+                             alt="Modern apartment building with balconies" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Elite Heights</h3>
+                        <p class="text-white/80 text-sm mt-2">Modern residential tower with premium balcony designs</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 5 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 3 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.22 PM.jpeg" 
+                             alt="TV wall unit living room design" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Living Room Feature Wall</h3>
+                        <p class="text-white/80 text-sm mt-2">Elegant TV unit with marble finish and ambient shelf lighting</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Full Wall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 4 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.34 PM (1).jpeg" 
+                             alt="White building with balconies and railings" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Palm Grove Residency</h3>
+                        <p class="text-white/80 text-sm mt-2">Elegant multi-unit residential with wrought iron balcony railings</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 4 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 4 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.23 PM (1).jpeg" 
+                             alt="Grey modern kitchen with island" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Modern Grey Kitchen</h3>
+                        <p class="text-white/80 text-sm mt-2">Sleek kitchen with breakfast island and pendant lighting</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Open Plan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 5 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.34 PM (2).jpeg" 
+                             alt="White building surrounded by trees" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Greenview Complex</h3>
+                        <p class="text-white/80 text-sm mt-2">Residential development blending modern architecture with nature</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 4 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 5 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.23 PM (2).jpeg" 
+                             alt="White minimalist kitchen" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Scandinavian Kitchen</h3>
+                        <p class="text-white/80 text-sm mt-2">Clean white cabinetry with matte black countertops and subway tiles</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> L-Shape</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 6 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.34 PM.jpeg" 
+                             alt="Angled view of white residential building" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Urban Nest</h3>
+                        <p class="text-white/80 text-sm mt-2">Stylish multi-floor residence with premium balcony spaces</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 5 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 6 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.23 PM.jpeg" 
+                             alt="Luxury bathroom with arched mirror" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Luxury Spa Bathroom</h3>
+                        <p class="text-white/80 text-sm mt-2">Marble-finish walls with arched backlit mirror and floating vanity</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Premium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 7 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.24 PM (1).jpeg" 
+                             alt="Modern bedroom design" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Contemporary Bedroom</h3>
+                        <p class="text-white/80 text-sm mt-2">Elegant bedroom with fluted wall panels and ambient lighting</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Master</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 8 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.24 PM.jpeg" 
+                             alt="Wardrobe and dressing area design" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Wardrobe & Study Nook</h3>
+                        <p class="text-white/80 text-sm mt-2">Floor-to-ceiling wardrobe with integrated dressing table and mirror</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Full Wall</span>
                         </div>
                     </div>
                 </div>
