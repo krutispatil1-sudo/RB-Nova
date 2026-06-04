@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB Nova | Premium Construction & Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Montserrat', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F5F3EE',
+                            100: '#E8E5DC',
+                            200: '#C9CDD2',
+                            300: '#A9ADB3',
+                            400: '#858B93',
+                            500: '#696E76',
+                            600: '#4B4F57',
+                            700: '#30333A',
+                            800: '#222329',
+                            900: '#17181C',
+                            950: '#0B0B0D',
+                        },
+                        accent: {
+                            50: '#F8EAC6',
+                            500: '#C8A45D',
+                            600: '#B28B3E',
+                            700: '#8C6A2D',
+                            800: '#5F471F',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-text {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        
+        .image-hover {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .group:hover .image-hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .progress-bar {
+            width: 0%;
+            transition: width 1.5s ease-out;
+        }
+        
+        .rb-logo-text {
+            background: linear-gradient(90deg, #f8d36b 0%, #d7a33a 42%, #f7f7f7 58%, #bdbdbd 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .rb-logo-image {
+            background: #090909;
+            border: 1px solid rgba(215, 163, 58, 0.45);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #171716;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b9841d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d7a33a;
+        }
+
+        .loader {
+            border-top-color: #d7a33a;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-100 bg-brand-950 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 lg:h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="rb-nova-logo.jpeg" alt="RB Nova logo" class="rb-logo-image w-12 h-12 lg:w-14 lg:h-14 rounded-lg object-cover">
+                    <div class="flex flex-col">
+                        <span class="rb-logo-text font-serif text-xl lg:text-2xl font-bold tracking-tight">RB NOVA</span>
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-brand-100/90">Building Legacy</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#about" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">About</a>
+                    <a href="#engineer" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Engineer</a>
+                    <a href="#services" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Services</a>
+                    <a href="#projects" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Projects</a>
+                    <a href="#process" class="nav-link text-sm font-medium text-white/90 hover:text-white transition-colors">Process</a>
+                    <a href="#contact" class="ml-4 px-6 py-3 bg-accent-500 hover:bg-accent-50 text-brand-950 text-xs font-semibold uppercase tracking-[0.18em] rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        Get a Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" type="button" aria-label="Open navigation menu" class="lg:hidden text-white p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-brand-900/95 nav-blur absolute w-full border-t border-white/10">
+            <div class="px-6 py-8 space-y-4">
+                <a href="#about" class="block text-lg text-white/90 hover:text-white py-2">About</a>
+                <a href="#engineer" class="block text-lg text-white/90 hover:text-white py-2">Engineer</a>
+                <a href="#services" class="block text-lg text-white/90 hover:text-white py-2">Services</a>
+                <a href="#projects" class="block text-lg text-white/90 hover:text-white py-2">Projects</a>
+                <a href="#process" class="block text-lg text-white/90 hover:text-white py-2">Process</a>
+                <a href="#contact" class="block mt-6 px-6 py-3 bg-accent-500 text-brand-950 text-center rounded-full font-semibold uppercase tracking-[0.18em]">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-brand-950 pt-28 pb-24">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(200,164,93,0.16),transparent_32%),linear-gradient(135deg,#0B0B0D_0%,#17181C_52%,#0B0B0D_100%)]"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 w-full text-center">
+            <div class="hero-text space-y-8">
+                <div class="inline-flex items-center justify-center gap-3 text-accent-500 text-xs font-semibold uppercase tracking-[0.28em]">
+                    <span class="w-10 h-px bg-accent-500"></span>
+                    Building Future. Creating Legacy.
+                    <span class="w-10 h-px bg-accent-500"></span>
+                </div>
+
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-[86px] font-semibold text-white leading-[1.03]">
+                    We Build<br>
+                    <span class="text-accent-500">Your Future</span>
+                </h1>
+
+                <p class="max-w-2xl mx-auto text-base md:text-lg text-brand-200 font-light leading-relaxed">
+                    Premium construction and infrastructure solutions for residential and commercial projects. 
+                    Where precision meets architectural excellence.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                    <a href="#projects" class="px-8 py-4 bg-accent-500 hover:bg-accent-50 text-brand-950 text-xs font-semibold uppercase tracking-[0.18em] rounded-full transition-all transform hover:scale-105 shadow-xl flex items-center gap-2">
+                        View Our Work
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-transparent hover:bg-accent-500/10 text-accent-500 border border-accent-500/70 text-xs font-semibold uppercase tracking-[0.18em] rounded-full transition-all">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <div class="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2">
+                <div class="w-1 h-2 bg-white/80 rounded-full animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 lg:py-32 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 text-accent-600 font-semibold text-sm uppercase tracking-wider mb-4">
+                        <div class="w-8 h-[2px] bg-accent-600"></div>
+                        Engineering-Led Construction
+                    </div>
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-900 mb-6 leading-tight">
+                        Crafting Spaces That<br>
+                        <span class="text-brand-600">Inspire Living</span>
+                    </h2>
+                    <p class="text-brand-600 leading-relaxed mb-6 text-lg">
+                        Led by civil engineer <span class="font-semibold text-accent-600">Rathod Bhimsen</span>, RB Nova brings 4 years of detail-oriented engineering, site execution expertise, and thoughtful design coordination to residential and commercial developments.
+                    </p>
+                    <p class="text-brand-600 leading-relaxed mb-6 text-lg">
+                        Our approach is grounded in being present on site, understanding the drawings deeply, and making sure each decision serves both the strength of the structure and the comfort of the people who will live or work inside it.
+                    </p>
+                    <p class="text-brand-600 leading-relaxed mb-8 text-lg">
+                        With hands-on experience across apartment, condominium, and residential projects, RB Nova translates architectural and structural drawings into precise on-site execution, supported by estimation, planning, quality control, and close coordination with contractors, consultants, and vendors.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-full bg-accent-50 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-shield-halved text-accent-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-900">Site Execution</h4>
+                                <p class="text-sm text-brand-500 mt-1">Drawing-led work with disciplined supervision</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-full bg-accent-50 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-award text-accent-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-brand-900">Design Coordination</h4>
+                                <p class="text-sm text-brand-500 mt-1">AutoCAD, Revit, STAAD Pro, and planning support</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="inline-flex items-center gap-2 text-accent-600 font-semibold hover:gap-4 transition-all">
+                        Learn More About Us <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="relative reveal">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" 
+                             alt="Construction team" 
+                             class="w-full h-[500px] object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineer Profile Section -->
+    <section id="engineer" class="py-24 lg:py-32 bg-brand-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-[400px_1fr] gap-10 lg:gap-14 items-start">
+                <div class="relative reveal lg:mt-12">
+                    <div class="absolute -inset-4 border border-accent-500/30 rounded-2xl"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-brand-800">
+                        <img src="Engineer Picture.png"
+                             alt="Civil Engineer Rathod Bhimsen"
+                             class="w-full aspect-[4/5] object-cover object-center">
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <div class="inline-flex items-center gap-2 text-accent-500 font-semibold text-xs uppercase tracking-wider mb-3">
+                        <div class="w-8 h-[2px] bg-accent-500"></div>
+                        About The Engineer
+                    </div>
+                    <h2 class="font-serif text-2xl lg:text-3xl font-bold text-brand-200 mb-3 leading-tight">
+                        Rathod Bhimsen<br>
+                        <span class="text-xl lg:text-2xl font-semibold">Civil Engineer & Site Designer</span>
+                    </h2>
+                    <p class="text-brand-200 text-base leading-6 mb-3">
+                        Rathod Bhimsen is a detail-oriented civil engineer experienced in site execution, structural design coordination, estimation, and project planning for residential and commercial developments.
+                    </p>
+                    <p class="text-brand-200 text-base leading-6 mb-5">
+                        He translates architectural, structural, and RCC drawings into accurate on-site execution while coordinating with contractors, architects, consultants, and vendors to maintain quality, cost control, safety, and timelines.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-3 mb-5">
+                        <div class="bg-brand-800/70 border border-white/10 rounded-xl p-3">
+                            <div class="w-8 h-8 rounded-lg bg-accent-500/15 flex items-center justify-center text-accent-500 mb-2">
+                                <i class="fa-solid fa-helmet-safety"></i>
+                            </div>
+                            <h3 class="font-serif text-base font-semibold text-brand-200 mb-1">Site Execution</h3>
+                            <p class="text-xs text-brand-200 leading-5">Layout marking, supervision, progress tracking, and material planning.</p>
+                        </div>
+                        <div class="bg-brand-800/70 border border-white/10 rounded-xl p-3">
+                            <div class="w-8 h-8 rounded-lg bg-accent-500/15 flex items-center justify-center text-accent-500 mb-2">
+                                <i class="fa-solid fa-drafting-compass"></i>
+                            </div>
+                            <h3 class="font-serif text-base font-semibold text-brand-200 mb-1">Design Coordination</h3>
+                            <p class="text-xs text-brand-200 leading-5">2D drawings, 3D elevations, structural coordination, and drawing review.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-3 mb-5">
+                        <div class="border-l-2 border-accent-500 pl-3">
+                            <div class="text-lg font-serif font-semibold text-brand-200">B.Tech</div>
+                            <div class="text-[10px] uppercase tracking-[0.12em] text-brand-200 mt-1">Civil Engineering</div>
+                        </div>
+                        <div class="border-l-2 border-accent-500 pl-3">
+                            <div class="text-lg font-serif font-semibold text-brand-200">4+</div>
+                            <div class="text-[10px] uppercase tracking-[0.12em] text-brand-200 mt-1">Years Experience</div>
+                        </div>
+                        <div class="border-l-2 border-accent-500 pl-3">
+                            <div class="text-lg font-serif font-semibold text-brand-200">4+</div>
+                            <div class="text-[10px] uppercase tracking-[0.12em] text-brand-200 mt-1">Core Technical Tools</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">AutoCAD</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">Revit</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">STAAD Pro</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">Primavera</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">BOQs & Estimation</span>
+                        <span class="px-2.5 py-1 rounded-full bg-white/10 text-brand-200 text-[11px]">Quality Control</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 lg:py-32 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <div class="inline-flex items-center gap-2 text-accent-600 font-semibold text-sm uppercase tracking-wider mb-4">
+                    <div class="w-8 h-[2px] bg-accent-600"></div>
+                    Our Services
+                    <div class="w-8 h-[2px] bg-accent-600"></div>
+                </div>
+                <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-900 mb-6">
+                    Comprehensive Building<br>Solutions
+                </h2>
+                <p class="text-brand-600 text-lg">From concept to completion, we handle every aspect of your construction project with expertise and care.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="group bg-brand-50 rounded-2xl p-8 hover:bg-brand-900 transition-all duration-500 cursor-pointer reveal">
+                    <div class="w-14 h-14 bg-accent-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-900 mb-3 group-hover:text-white transition-colors">Residential Construction</h3>
+                    <p class="text-brand-600 mb-4 group-hover:text-brand-300 transition-colors">Custom homes, renovations, and extensions built to your exact specifications and lifestyle needs.</p>
+                    <ul class="space-y-2 text-sm text-brand-500 group-hover:text-brand-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Custom Home Building</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Home Renovations</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Extensions & Additions</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="group bg-brand-50 rounded-2xl p-8 hover:bg-brand-900 transition-all duration-500 cursor-pointer reveal">
+                    <div class="w-14 h-14 bg-accent-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-900 mb-3 group-hover:text-white transition-colors">Commercial Projects</h3>
+                    <p class="text-brand-600 mb-4 group-hover:text-brand-300 transition-colors">Office buildings, retail spaces, and industrial facilities designed for functionality and aesthetics.</p>
+                    <ul class="space-y-2 text-sm text-brand-500 group-hover:text-brand-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Office Complexes</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Retail Construction</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Industrial Facilities</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="group bg-brand-50 rounded-2xl p-8 hover:bg-brand-900 transition-all duration-500 cursor-pointer reveal">
+                    <div class="w-14 h-14 bg-accent-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-road"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-900 mb-3 group-hover:text-white transition-colors">Infrastructure</h3>
+                    <p class="text-brand-600 mb-4 group-hover:text-brand-300 transition-colors">Roads, bridges, utilities, and public works that connect communities and power progress.</p>
+                    <ul class="space-y-2 text-sm text-brand-500 group-hover:text-brand-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Road & Bridge Work</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Utility Installation</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Public Facilities</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="group bg-brand-50 rounded-2xl p-8 hover:bg-brand-900 transition-all duration-500 cursor-pointer reveal">
+                    <div class="w-14 h-14 bg-accent-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-900 mb-3 group-hover:text-white transition-colors">Architecture & Design</h3>
+                    <p class="text-brand-600 mb-4 group-hover:text-brand-300 transition-colors">Innovative architectural solutions that blend form and function for optimal living spaces.</p>
+                    <ul class="space-y-2 text-sm text-brand-500 group-hover:text-brand-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> 3D Modeling</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Interior Design</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Landscape Planning</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="group bg-brand-50 rounded-2xl p-8 hover:bg-brand-900 transition-all duration-500 cursor-pointer reveal">
+                    <div class="w-14 h-14 bg-accent-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-hammer"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-900 mb-3 group-hover:text-white transition-colors">Renovation & Remodeling</h3>
+                    <p class="text-brand-600 mb-4 group-hover:text-brand-300 transition-colors">Transform existing spaces with modern upgrades while preserving structural integrity.</p>
+                    <ul class="space-y-2 text-sm text-brand-500 group-hover:text-brand-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Kitchen Remodeling</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Bathroom Upgrades</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Basement Finishing</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="group bg-brand-50 rounded-2xl p-8 hover:bg-brand-900 transition-all duration-500 cursor-pointer reveal">
+                    <div class="w-14 h-14 bg-accent-600 rounded-xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-brand-900 mb-3 group-hover:text-white transition-colors">Green Building</h3>
+                    <p class="text-brand-600 mb-4 group-hover:text-brand-300 transition-colors">Sustainable construction practices that reduce environmental impact and energy costs.</p>
+                    <ul class="space-y-2 text-sm text-brand-500 group-hover:text-brand-400">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Solar Integration</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Eco Materials</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-accent-500"></i> Energy Efficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 lg:py-32 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-12 reveal">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 text-accent-600 font-semibold text-sm uppercase tracking-wider mb-4">
+                        <div class="w-8 h-[2px] bg-accent-600"></div>
+                        Portfolio
+                    </div>
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-900">
+                        Featured Projects
+                    </h2>
+                </div>
+                <div class="flex gap-2 mt-6 lg:mt-0">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium transition-all bg-brand-900 text-white" data-filter="all">All</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-brand-600 hover:bg-brand-100" data-filter="completed">Completed Projects</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all bg-white text-brand-600 hover:bg-brand-100" data-filter="interior">Interior Designs</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+                <!-- Completed Project 1 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.51 PM.jpeg" 
+                             alt="Multi-story residential building" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">RB Nova Residency</h3>
+                        <p class="text-white/80 text-sm mt-2">Multi-story residential complex with modern facade</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 5 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 1 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.21 PM.jpeg" 
+                             alt="Luxury modern kitchen" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Premium Kitchen</h3>
+                        <p class="text-white/80 text-sm mt-2">Elegant U-shaped kitchen with ambient lighting and premium finishes</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Modular</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 2 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.33 PM (1).jpeg" 
+                             alt="White residential building with blue accents" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Skyline Apartments</h3>
+                        <p class="text-white/80 text-sm mt-2">Contemporary apartment building with clean architectural lines</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 4 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 2 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.22 PM (1).jpeg" 
+                             alt="Modern bathroom with round mirror" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Designer Bathroom</h3>
+                        <p class="text-white/80 text-sm mt-2">Minimalist bathroom with backlit mirror and floating vanity</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Compact</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 3 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.33 PM.jpeg" 
+                             alt="Modern apartment building with balconies" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Elite Heights</h3>
+                        <p class="text-white/80 text-sm mt-2">Modern residential tower with premium balcony designs</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 5 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 3 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.22 PM.jpeg" 
+                             alt="TV wall unit living room design" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Living Room Feature Wall</h3>
+                        <p class="text-white/80 text-sm mt-2">Elegant TV unit with marble finish and ambient shelf lighting</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Full Wall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 4 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.34 PM (1).jpeg" 
+                             alt="White building with balconies and railings" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Palm Grove Residency</h3>
+                        <p class="text-white/80 text-sm mt-2">Elegant multi-unit residential with wrought iron balcony railings</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 4 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 4 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.23 PM (1).jpeg" 
+                             alt="Grey modern kitchen with island" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Modern Grey Kitchen</h3>
+                        <p class="text-white/80 text-sm mt-2">Sleek kitchen with breakfast island and pendant lighting</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Open Plan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 5 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.34 PM (2).jpeg" 
+                             alt="White building surrounded by trees" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Greenview Complex</h3>
+                        <p class="text-white/80 text-sm mt-2">Residential development blending modern architecture with nature</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 4 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 5 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.23 PM (2).jpeg" 
+                             alt="White minimalist kitchen" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Scandinavian Kitchen</h3>
+                        <p class="text-white/80 text-sm mt-2">Clean white cabinetry with matte black countertops and subway tiles</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> L-Shape</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Project 6 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="completed">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.53.34 PM.jpeg" 
+                             alt="Angled view of white residential building" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Completed Project</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Urban Nest</h3>
+                        <p class="text-white/80 text-sm mt-2">Stylish multi-floor residence with premium balcony spaces</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-building mr-1"></i> 5 Floors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 6 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.23 PM.jpeg" 
+                             alt="Luxury bathroom with arched mirror" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Luxury Spa Bathroom</h3>
+                        <p class="text-white/80 text-sm mt-2">Marble-finish walls with arched backlit mirror and floating vanity</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Premium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 7 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.24 PM (1).jpeg" 
+                             alt="Modern bedroom design" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Contemporary Bedroom</h3>
+                        <p class="text-white/80 text-sm mt-2">Elegant bedroom with fluted wall panels and ambient lighting</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Master</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Design 8 -->
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer reveal project-card" data-category="interior">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="WhatsApp Image 2026-06-04 at 12.51.24 PM.jpeg" 
+                             alt="Wardrobe and dressing area design" 
+                             class="w-full h-full object-cover image-hover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="text-accent-500 text-sm font-semibold uppercase tracking-wider mb-2">Interior Design</span>
+                        <h3 class="text-white font-serif text-2xl font-bold">Wardrobe & Study Nook</h3>
+                        <p class="text-white/80 text-sm mt-2">Floor-to-ceiling wardrobe with integrated dressing table and mirror</p>
+                        <div class="flex items-center gap-4 mt-4 text-white/70 text-sm">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> 2024</span>
+                            <span><i class="fa-solid fa-ruler-combined mr-1"></i> Full Wall</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 lg:py-32 bg-brand-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80" class="w-full h-full object-cover">
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <div class="inline-flex items-center gap-2 text-accent-500 font-semibold text-sm uppercase tracking-wider mb-4">
+                    <div class="w-8 h-[2px] bg-accent-500"></div>
+                    How We Work
+                    <div class="w-8 h-[2px] bg-accent-500"></div>
+                </div>
+                <h2 class="font-serif text-4xl lg:text-5xl font-bold mb-6">Our Building Process</h2>
+                <p class="text-brand-300 text-lg">A streamlined approach to delivering exceptional results on time and within budget.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="relative reveal">
+                    <div class="text-6xl font-serif font-bold text-brand-800 absolute -top-4 -left-2">01</div>
+                    <div class="relative bg-brand-800/50 backdrop-blur-sm p-8 rounded-2xl border border-brand-700 hover:border-accent-500 transition-colors">
+                        <div class="w-12 h-12 bg-accent-600 rounded-lg flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold mb-3">Consultation</h3>
+                        <p class="text-brand-300 text-sm leading-relaxed">We discuss your vision, requirements, and budget to establish clear project goals.</p>
+                    </div>
+                </div>
+
+                <div class="relative reveal">
+                    <div class="text-6xl font-serif font-bold text-brand-800 absolute -top-4 -left-2">02</div>
+                    <div class="relative bg-brand-800/50 backdrop-blur-sm p-8 rounded-2xl border border-brand-700 hover:border-accent-500 transition-colors">
+                        <div class="w-12 h-12 bg-accent-600 rounded-lg flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold mb-3">Design & Planning</h3>
+                        <p class="text-brand-300 text-sm leading-relaxed">Our architects create detailed plans and 3D visualizations for your approval.</p>
+                    </div>
+                </div>
+
+                <div class="relative reveal">
+                    <div class="text-6xl font-serif font-bold text-brand-800 absolute -top-4 -left-2">03</div>
+                    <div class="relative bg-brand-800/50 backdrop-blur-sm p-8 rounded-2xl border border-brand-700 hover:border-accent-500 transition-colors">
+                        <div class="w-12 h-12 bg-accent-600 rounded-lg flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-hard-hat"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold mb-3">Construction</h3>
+                        <p class="text-brand-300 text-sm leading-relaxed">Expert craftsmen execute the build with precision using premium materials.</p>
+                    </div>
+                </div>
+
+                <div class="relative reveal">
+                    <div class="text-6xl font-serif font-bold text-brand-800 absolute -top-4 -left-2">04</div>
+                    <div class="relative bg-brand-800/50 backdrop-blur-sm p-8 rounded-2xl border border-brand-700 hover:border-accent-500 transition-colors">
+                        <div class="w-12 h-12 bg-accent-600 rounded-lg flex items-center justify-center text-white text-xl mb-4">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold mb-3">Handover</h3>
+                        <p class="text-brand-300 text-sm leading-relaxed">Final inspection, quality assurance, and delivering your completed project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-r from-brand-950 via-brand-900 to-accent-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 reveal">
+            <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6">Ready to Build Your Legacy?</h2>
+            <p class="text-brand-100 text-lg mb-8 max-w-2xl mx-auto">Let's discuss your next project. Our team is ready to bring your vision to life with precision and excellence.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="px-8 py-4 bg-accent-500 text-brand-950 text-xs font-bold uppercase tracking-[0.18em] rounded-full hover:bg-accent-50 transition-all transform hover:scale-105 shadow-xl">
+                    Start Your Project
+                </a>
+                <a href="tel:+916362931611" class="px-8 py-4 bg-transparent text-accent-500 text-xs font-bold uppercase tracking-[0.18em] rounded-full hover:bg-accent-500/10 transition-all border border-accent-500/70">
+                    <i class="fa-solid fa-phone mr-2"></i> Call Us Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 lg:py-32 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto text-center reveal">
+                <div class="inline-flex items-center justify-center gap-2 text-accent-600 font-semibold text-sm uppercase tracking-wider mb-4">
+                    <div class="w-8 h-[2px] bg-accent-600"></div>
+                    Contact Us
+                    <div class="w-8 h-[2px] bg-accent-600"></div>
+                </div>
+                <h2 class="font-serif text-4xl lg:text-5xl font-bold text-brand-900 mb-6">Let's Start a Conversation</h2>
+                <p class="text-brand-600 text-lg mb-12">Have a project in mind? Reach out to us for a free consultation and estimate.</p>
+                
+                <div class="grid md:grid-cols-3 gap-6 text-left">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-accent-600 shadow-sm mb-5">
+                            <i class="fa-solid fa-location-dot text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-brand-900 mb-2">Visit Our Office</h4>
+                        <p class="text-brand-600">Near Mariyama Aai Temple,<br>Ram Mandir Circle,<br>Kalaburagi</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-accent-600 shadow-sm mb-5">
+                            <i class="fa-solid fa-phone text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-brand-900 mb-2">Call Us</h4>
+                        <p class="text-brand-600">
+                            <a href="tel:+916362931611" class="hover:text-accent-600 transition-colors">+91 63629 31611</a><br>
+                            <a href="tel:+918904293844" class="hover:text-accent-600 transition-colors">+91 89042 93844</a><br>
+                            Mon - Fri: 8:00 AM - 6:00 PM
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center text-accent-600 shadow-sm mb-5">
+                            <i class="fa-solid fa-envelope text-xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-brand-900 mb-2">Email Us</h4>
+                        <p class="text-brand-600 text-sm lg:text-base whitespace-nowrap"><a href="mailto:rbnovaconstruction@gamil.com" class="hover:text-accent-600 transition-colors">rbnovaconstruction@gamil.com</a></p>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <h4 class="font-semibold text-brand-900 mb-4">Follow Us</h4>
+                    <div class="flex justify-center gap-3">
+                        <a href="https://www.instagram.com/rbnova.luxurybuilds?utm_source=qr&igsh=MTgzZGEzNnY1czlzMg%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="RB Nova on Instagram" class="w-10 h-10 bg-brand-900 text-white rounded-full flex items-center justify-center hover:bg-accent-600 transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="rb-nova-logo.jpeg" alt="RB Nova logo" class="rb-logo-image w-28 h-28 rounded-xl object-cover">
+                        <div>
+                            <span class="rb-logo-text font-serif text-xl font-bold">RB NOVA</span>
+                            <span class="text-xs uppercase tracking-wider text-brand-400 block">Building Legacy</span>
+                        </div>
+                    </div>
+                    <p class="text-brand-400 text-sm leading-relaxed">Building future. Creating legacy. We transform visions into reality with precision craftsmanship and innovative solutions.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-brand-400">
+                        <li><a href="#about" class="hover:text-accent-500 transition-colors">About Us</a></li>
+                        <li><a href="#engineer" class="hover:text-accent-500 transition-colors">Engineer</a></li>
+                        <li><a href="#services" class="hover:text-accent-500 transition-colors">Services</a></li>
+                        <li><a href="#projects" class="hover:text-accent-500 transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="hover:text-accent-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-brand-400">
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Residential</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Commercial</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Renovation</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition-colors">Infrastructure</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-brand-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-brand-500 text-sm">&copy; 2024 RB Nova. All rights reserved.</p>
+                <div class="flex gap-6 text-brand-500 text-sm">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-brand-950/90', 'nav-blur', 'shadow-lg');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-brand-950/90', 'nav-blur', 'shadow-lg');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Project filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-900', 'text-white');
+                    b.classList.add('bg-white', 'text-brand-600');
+                });
+                btn.classList.remove('bg-white', 'text-brand-600');
+                btn.classList.add('bg-brand-900', 'text-white');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.9)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
